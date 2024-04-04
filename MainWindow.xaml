@@ -22,34 +22,6 @@
         </Grid.Background>
         <Label Content="NutriPlan" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Foreground="#FFF1F1F1" FontSize="24" FontFamily="Impact"/>
         <TextBlock HorizontalAlignment="Left" Margin="30,118,0,0" TextWrapping="Wrap" Text="Планируйте свое питание вместе с нами и находитесь в балансе" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" Width="217" FontSize="20" Foreground="#FFF1F1F1"/>
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Border BorderBrush="Black" Width="962" Height="622" BorderThickness="0,0,1,1" Background="#E2FBFBFB" CornerRadius="38,38,38,38" Margin="403,118,75,268">
-                <PasswordBox HorizontalAlignment="Center" VerticalAlignment="Top" Width="400" Height="45" Margin="0,311,0,0" FontSize="22" FontFamily="Imprint MT Shadow"/>
-            </Border>
-            <Label Content="Войти в систему" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" FontFamily="Imprint MT Shadow" Margin="760,150,0,0"/>
-            <Border x:Name="Butn_log_in" Width="300" Height="50" Margin="734,550,406,408" CornerRadius="10,10,10,10" Cursor="Hand">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="4" ShadowDepth="4" Opacity="0.25"/>
-                </Border.Effect>
-                <Border.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <LinearGradientBrush.RelativeTransform>
-                            <TransformGroup>
-                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                                <SkewTransform CenterX="0.5" CenterY="0.5"/>
-                                <RotateTransform CenterX="0.5" CenterY="0.5"/>
-                                <TranslateTransform X="10"/>
-                            </TransformGroup>
-                        </LinearGradientBrush.RelativeTransform>
-                        <GradientStop Color="#FFB6C2AC" Offset="0"/>
-                        <GradientStop Color="#FF6F875D" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-                <Label Content="Войти" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" FontFamily="Imprint MT Shadow" Background="Transparent" Foreground="White"/>
-            </Border>
-            <TextBox HorizontalAlignment="Left" Margin="684,347,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="400" Height="45"  FontSize="22" FontWeight="Bold" FontFamily="Imprint MT Shadow"/>
-        </Grid>
-        <Image Margin="81,328,914,81" Source="/img/Abstraction.png"/>
-        
+
     </Grid>
 </Window>
