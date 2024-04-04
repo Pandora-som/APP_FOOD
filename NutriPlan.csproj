@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Abstraction.png" />
     <None Remove="img\Abstraction.png" />
   </ItemGroup>
 
@@ -16,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Abstraction.png" />
     <Resource Include="img\Abstraction.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
