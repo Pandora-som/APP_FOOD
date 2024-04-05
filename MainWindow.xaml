@@ -22,6 +22,13 @@
         </Grid.Background>
         <Label Content="NutriPlan" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Foreground="#FFF1F1F1" FontSize="24" FontFamily="Impact"/>
         <TextBlock HorizontalAlignment="Left" Margin="30,118,0,0" TextWrapping="Wrap" Text="Планируйте свое питание вместе с нами и находитесь в балансе" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" Width="217" FontSize="20" Foreground="#FFF1F1F1"/>
-
+        <Border Width="950" Height="600" Background="#FFF1F1F1" CornerRadius="20,20,20,20" Margin="427,158,63,226">
+            <Grid>
+                
+            </Grid>
+        </Border>
+        <Border Width="600" Height="650" Margin="-390,148,390,-148">
+            <Image Source="/img/Abstraction.png" />
+        </Border>
     </Grid>
 </Window>
