@@ -31,10 +31,10 @@
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Вход в систему" FontSize="24" Foreground="#FFEAEAEA" FontWeight="Bold"></TextBlock>
                 </Border>
                 <Border Width="474" Height="65" CornerRadius="10,10,10,10" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Margin="0,169,0,0">
-                    <TextBlock Width="400" VerticalAlignment="Center" Text="Логин" FontSize="24"></TextBlock>
+                    <TextBox TextWrapping="Wrap" Text="TextBox"/>
                 </Border>
                 <Border Width="474" Height="65" CornerRadius="10,10,10,10" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="1,1,1,1">
-                    <TextBlock Width="400" VerticalAlignment="Center" Text="Введите пароль" FontSize="24"></TextBlock>
+                    <TextBox Width="400" VerticalAlignment="Center" Text="Введите пароль" FontSize="24"></TextBox>
                 </Border>
                 <Border Width="300" Height="65" Margin="325,401,325,134" CornerRadius="20,20,20,20" IsEnabled="False" Cursor="Hand">
                     <Border.Effect>

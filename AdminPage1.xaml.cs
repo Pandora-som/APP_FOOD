@@ -23,6 +23,35 @@ namespace NutriPlan
         public AdminPage1()
         {
             InitializeComponent();
+            ShowAddDishes(Visibility.Hidden, Visibility.Visible, Visibility.Hidden);
+        }
+
+
+        private void NewDish(object sender, MouseButtonEventArgs e)
+        {
+            ShowAddDishes(Visibility.Visible, Visibility.Hidden, Visibility.Hidden);
+        }
+
+        private void TextBlock_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            ShowAddDishes(Visibility.Visible, Visibility.Hidden, Visibility.Hidden);
+        }
+
+        private void ShowAddDishes (Visibility addDishes, Visibility tables, Visibility dishesTable)
+        {
+            PanelAddDishes.Visibility = addDishes;
+            PanelTables.Visibility = tables;
+            PanelDishesTable.Visibility = dishesTable;
+        }
+
+        private void Close(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Closetabe(object sender, MouseButtonEventArgs e)
+        {
+            ShowAddDishes(Visibility.Hidden, Visibility.Visible, Visibility.Hidden);
         }
     }
 }
