@@ -6,6 +6,21 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       Title="NutriPlan" Height="1000" Width="1440">
 
+    <Window.Resources>
+        <Style x:Key="NoBorderButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid Background="#FFA5CCBE">
         <Grid Width="300" HorizontalAlignment="Right">
             <Grid.Background>
@@ -26,7 +41,7 @@
                         </Border.Background>
                         <Grid>
                             <Border Width="187" Height="187" CornerRadius="130,130,130,130" Background="#FFF3F3F3">
-                                <TextBlock HorizontalAlignment="Center" Text="1000" FontSize="20" VerticalAlignment="Center" FontWeight="Bold"></TextBlock>
+                                <TextBlock x:Name="UpdateUsers" HorizontalAlignment="Center" Text="" FontSize="20" VerticalAlignment="Center" FontWeight="Bold"></TextBlock>
                             </Border>
                         </Grid>
                     </Border>
@@ -79,7 +94,7 @@
             </Border>
             <Border Margin="0,812,0,0">
                 <Grid>
-                    <Border Width="200" Height="45" CornerRadius="12,12,12,12" Margin="50,64,50,63" Background="White" BorderThickness="2,2,2,2" IsEnabled="False">
+                    <Border Width="200" Height="45" CornerRadius="12,12,12,12" Margin="50,64,50,63" Background="White" BorderThickness="2,2,2,2" MouseDown="exit_click" Cursor="Hand">
                         <Border.BorderBrush>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="#FFA678CE" Offset="1"/>
@@ -95,8 +110,8 @@
             <Label Content="NutriPlan" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Foreground="#FFF1F1F1" FontSize="24" FontFamily="Impact"/>
             <TextBlock x:Name="TitleWindow" HorizontalAlignment="Center" Margin="0,38,0,0" FontWeight="Bold" TextWrapping="Wrap" Text="Панель адмимнистрирования столов" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" Width="372" FontSize="20" Foreground="#FFF1F1F1"/>
         </Grid>
-        <ScrollViewer x:Name="PanelTables" Margin="0,82,300,0" VerticalScrollBarVisibility="Visible"  HorizontalScrollBarVisibility="Disabled" Visibility="Visible">
-            <Grid Margin="19,0,0,0" ShowGridLines="True">
+        <ScrollViewer x:Name="PanelTables" Margin="60,85,300,30" VerticalScrollBarVisibility="Visible"  HorizontalScrollBarVisibility="Disabled" Visibility="Visible">
+            <Grid Margin="15,0,0,0" ShowGridLines="False">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -109,10 +124,10 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Grid.Row="0" Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="0" Grid.Row="0" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Background="#00DDDDDD" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="1"/>
@@ -120,24 +135,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button x:Name="Table1"  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button x:Name="Table1"  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="1" Grid.Row="0" Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="1" Grid.Row="0" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="1"/>
@@ -145,24 +160,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="2" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="2" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="2" Grid.Row="0" Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="2" Grid.Row="0" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FFE79952"/>
@@ -170,24 +185,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="3" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="3" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="3" Grid.Row="0"  Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="3" Grid.Row="0"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF6FCCAA"/>
@@ -195,24 +210,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="4" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="4" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="0" Grid.Row="1"  Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="0" Grid.Row="1"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#FF737373" Offset="1"/>
@@ -220,24 +235,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="5" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="5" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="1" Grid.Row="1"  Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="1" Grid.Row="1"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#E3E3BC"/>
@@ -245,24 +260,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="6" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="6" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="2" Grid.Row="1"  Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="2" Grid.Row="1"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#CD61C2"/>
@@ -270,24 +285,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="7" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="7" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="3" Grid.Row="1"  Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="3" Grid.Row="1" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#9680D6"/>
@@ -295,24 +310,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="8" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="8" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="0" Grid.Row="2"  Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="0" Grid.Row="2"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#618CCD"/>
@@ -320,24 +335,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="9" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="9" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="1" Grid.Row="2"  Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="1" Grid.Row="2"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#CD6161"/>
@@ -345,24 +360,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="10" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="10" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="2" Grid.Row="2"  Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="2" Grid.Row="2"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#CDB561"/>
@@ -370,24 +385,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="11" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="11" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="3" Grid.Row="2"  Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="3" Grid.Row="2"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#C4CD61"/>
@@ -395,24 +410,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="12" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="12" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="0" Grid.Row="3"  Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="0" Grid.Row="3"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#69CD61"/>
@@ -420,24 +435,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="13" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="13" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="1" Grid.Row="3"  Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="1" Grid.Row="3" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#61BACD"/>
@@ -445,24 +460,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="14" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="14" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="2" Grid.Row="3"  Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="2" Grid.Row="3"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#C4DBD3"/>
@@ -470,24 +485,24 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="15" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="15" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="3" Grid.Row="3"  Width="210" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD">
-                    <Border Width="210" Height="220" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
+                <Button Grid.Column="3" Grid.Row="3"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                    <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
-                            <Border Width="180" Height="165" CornerRadius="20,20,20,20" Margin="15,11,15,44">
+                            <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                         <GradientStop Color="#D5EFC1"/>
@@ -495,16 +510,16 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <Grid>
-                                    <Border Width="100" Height="30" Margin="40,36,40,99">
-                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="100" Height="30" Margin="25,25,25,80">
+                                        <TextBlock HorizontalAlignment="Center"  Text="Стол" Foreground="#FFF1F1F1" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
-                                    <Border Width="55" Height="55" Margin="62,82,62,27" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="16" FontWeight="Bold" FontSize="24"></TextBlock>
+                                    <Border Width="35" Height="35" Margin="58,68,58,33" Background="#FFFDFDFD" CornerRadius="30,30,30,30">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="16" FontWeight="Bold" FontSize="20"></TextBlock>
                                     </Border>
                                 </Grid>
                             </Border>
-                            <Button  Width="100" Height="30" Margin="95,180,15,10" Background="#00DDDDDD" BorderBrush="#00707070" Cursor="Hand">
-                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
+                            <Button  Width="100" Height="30" Margin="70,151,10,9" Background="#00DDDDDD" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                                <TextBlock  Text="Изменить" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextDecorations="Underline"/>
                             </Button>
                         </Grid>
                     </Border>
@@ -589,7 +604,7 @@
                 </Grid>
             </ScrollViewer>
         </Grid>
-        <Grid x:Name="PanelAddDishes" Margin="19,82,300,0" Background="#FFE8EFE8" Visibility="Hidden">
+        <Grid x:Name="PanelAddDishes" Margin="19,82,300,0" Background="#FFE8EFE8" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="79*"/>
                 <ColumnDefinition Width="229*"/>
@@ -613,43 +628,66 @@
                 <TextBlock Text="X" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Border>
             <Label Grid.Column="1" Content="Наименование" HorizontalAlignment="Left" Margin="27,0,0,0" Grid.Row="1" VerticalAlignment="Center" Height="37" Width="120"/>
-            <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="54,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="278" Height="36"/>
+            <TextBox x:Name="nameDish" Grid.Column="2" HorizontalAlignment="Left" Margin="54,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="278" Height="36"/>
             <Label Grid.Column="1" Content="Ингридиенты" HorizontalAlignment="Left" Margin="27,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="37" Width="120"/>
-            <ListBox Grid.Column="2" Grid.Row="1" Margin="446,57,0,0" Grid.RowSpan="2" Grid.ColumnSpan="1"/>
-            <Button Grid.Column="2" Content="Добавить" HorizontalAlignment="Left" Margin="352,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="68" Height="20"/>
-            <Button Content="Удалить" HorizontalAlignment="Left" Margin="352,61,0,0" VerticalAlignment="Top" Width="68" Grid.Column="2" Grid.Row="2" Height="20"/>
-            <ComboBox Grid.Column="2" HorizontalAlignment="Left" Margin="54,8,0,0" Grid.Row="2" VerticalAlignment="Top" Width="226" IsEditable="True" Height="22"/>
+            <ListBox x:Name="IngredientsBDADD" Grid.Column="2" Grid.Row="1" Margin="446,57,0,0" Grid.RowSpan="2" Grid.ColumnSpan="1"/>
+            <ComboBox x:Name="IngredientsBDSearch" Grid.Column="2" HorizontalAlignment="Left" Margin="54,8,0,0" Grid.Row="2" VerticalAlignment="Top" Width="200" IsEditable="True" Height="25"/>
+            <Button Grid.Column="2" Content="Добавить" HorizontalAlignment="Left" Margin="352,10,0,0" Grid.Row="2" Cursor="Hand" VerticalAlignment="Top" Width="68" Height="20" MouseDown="Add_btn_create"/>
+            <Button Content="Удалить" HorizontalAlignment="Left" Margin="352,61,0,0" VerticalAlignment="Top" Cursor="Hand" Width="68" Grid.Column="2" Grid.Row="2" Height="20" MouseDown="Delete_btn_create"/>
             <Label Grid.Column="1" Content="Калорийность" HorizontalAlignment="Left" Margin="27,0,0,0" Grid.Row="3" VerticalAlignment="Center" Height="37" Width="120"/>
-            <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="132,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120" Height="17"/>
+            <TextBox x:Name="kkl" Grid.Column="2" HorizontalAlignment="Left" Margin="132,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Ккл" VerticalAlignment="Center" Width="120" Height="17"/>
             <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Margin="0,0,0,0">
+                <Label Grid.Column="1" Content="Выберите тип блюда" Height="36" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="type1" Content="Овощное" Cursor="Hand" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="type2" Content="Мясное" Cursor="Hand" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="type3" Content="Молочное" Cursor="Hand" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="type4" Content="Соусы" Cursor="Hand" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="type5" Content="Грибное" Cursor="Hand" HorizontalAlignment="Left" Margin="150,41,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="type6" Content="Острое" HorizontalAlignment="Left" Margin="150,61,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="type7" Content="Хлебобулочные изделия" Cursor="Hand" HorizontalAlignment="Left" Margin="150,81,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="type8" Content="Кофе" Cursor="Hand" HorizontalAlignment="Left" Margin="150,101,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="type9" Content="Сладкое" Cursor="Hand" HorizontalAlignment="Left" Margin="370,41,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="type10" Content="Копчености/ колбасные изделия" Cursor="Hand" HorizontalAlignment="Left" Margin="370,61,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="type11" Content="Маринованная продукция" Cursor="Hand" HorizontalAlignment="Left" Margin="370,81,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="type12" Content="Бобовые" Cursor="Hand" HorizontalAlignment="Left" Margin="370,101,0,0" VerticalAlignment="Top"/>
+            </Grid>
+            <Grid Grid.Row="4" Grid.ColumnSpan="3" Margin="78,170,2,113">
                 <Label Grid.Column="1" Content="Выберите столы к которым относится блюдо" Height="36" Margin="0,0,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 1" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 2" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 3" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 4" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 5" HorizontalAlignment="Left" Margin="100,41,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 6" HorizontalAlignment="Left" Margin="100,61,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 7" HorizontalAlignment="Left" Margin="100,81,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 8" HorizontalAlignment="Left" Margin="100,101,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 9" HorizontalAlignment="Left" Margin="190,41,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 10" HorizontalAlignment="Left" Margin="190,61,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 11" HorizontalAlignment="Left" Margin="190,81,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 12" HorizontalAlignment="Left" Margin="190,101,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 13" HorizontalAlignment="Left" Margin="280,41,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 14" HorizontalAlignment="Left" Margin="280,61,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 15" HorizontalAlignment="Left" Margin="280,81,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Стол 16" HorizontalAlignment="Left" Margin="280,101,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk1" Content="Стол 1" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk2" Content="Стол 2" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk3" Content="Стол 3" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk4" Content="Стол 4" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk5" Content="Стол 5" HorizontalAlignment="Left" Margin="100,41,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk6" Content="Стол 6" HorizontalAlignment="Left" Margin="100,61,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk7" Content="Стол 7" HorizontalAlignment="Left" Margin="100,81,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk8" Content="Стол 8" HorizontalAlignment="Left" Margin="100,101,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk9" Content="Стол 9" HorizontalAlignment="Left" Margin="190,41,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk10" Content="Стол 10" HorizontalAlignment="Left" Margin="190,61,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk11" Content="Стол 11" HorizontalAlignment="Left" Margin="190,81,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk12" Content="Стол 12" HorizontalAlignment="Left" Margin="190,101,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk13" Content="Стол 13" HorizontalAlignment="Left" Margin="280,41,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk14" Content="Стол 14" HorizontalAlignment="Left" Margin="280,61,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk15" Content="Стол 15" HorizontalAlignment="Left" Margin="280,81,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk16" Content="Стол 16" HorizontalAlignment="Left" Margin="280,101,0,0" VerticalAlignment="Top"/>
             </Grid>
             <Grid Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="1" Margin="0,0,0,0" Grid.RowSpan="1">
                 <GroupBox Header="Тип приема пищи">
                     <Grid>
-                        <RadioButton Content="Завтрак" Height="27" Margin="0,0,0,0" VerticalAlignment="Top"/>
-                        <RadioButton Content="Обед" Height="27" Margin="0,20,0,0" VerticalAlignment="Top"/>
-                        <RadioButton Content="Ужин" Height="27" Margin="0,40,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="breakfast_type" Content="Завтрак" Height="27" Margin="0,0,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="dinner_type" Content="Обед" Height="27" Margin="0,20,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="supper_type" Content="Ужин" Height="27" Margin="0,40,0,0" VerticalAlignment="Top"/>
                     </Grid>
                 </GroupBox>
             </Grid>
-            <Button Grid.Column="2" Content="Сохранить" Margin="0,500,0,0" Grid.Row="4" VerticalAlignment="Top" Height="40"/>
+            <Border x:Name="Save_btnDish" Width="200" Height="45" CornerRadius="12,12,12,12" Margin="209,457,209,63" Background="#CC585858" BorderThickness="2,2,2,2" Cursor="Hand" Grid.Column="2" Grid.Row="4" MouseDown="Save_btnDishBD">
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA678CE" Offset="1"/>
+                        <GradientStop Color="#FF81D255" Offset="0"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <TextBlock Text="Сохранить" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFF3F3F3" MouseDown="Save_btnDishBD"/>
+            </Border>
         </Grid>
     </Grid>
 </Window>

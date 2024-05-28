@@ -25,18 +25,18 @@
         <Border Width="950" Height="600" Background="#FFF1F1F1" CornerRadius="20,20,20,20" Margin="427,158,63,226">
             <Grid>
                 <Border Width="475" Height="80" Background="#B2A2B692" CornerRadius="20,0,20,0" HorizontalAlignment="Center" VerticalAlignment="Top" IsEnabled="False">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Вход в систему" FontSize="24" Foreground="#FFEAEAEA"></TextBlock>
                     <Border.Effect>
-                        <DropShadowEffect Color="#B2000000" BlurRadius="8"/>
+                        <DropShadowEffect Color="#B2000000"/>
                     </Border.Effect>
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Вход в систему" FontSize="24" Foreground="#FFEAEAEA" FontWeight="Bold"></TextBlock>
                 </Border>
-                <Border Width="474" Height="65" CornerRadius="10,10,10,10" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Margin="0,169,0,0">
-                    <TextBox TextWrapping="Wrap" Text="TextBox"/>
+                <Border Width="474" Height="65" CornerRadius="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1,1,1,1" Margin="0,169,0,0">
+                    <TextBox x:Name="textBoxUserName" Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Text="Введиле логин"/>
                 </Border>
-                <Border Width="474" Height="65" CornerRadius="10,10,10,10" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="1,1,1,1">
-                    <TextBox Width="400" VerticalAlignment="Center" Text="Введите пароль" FontSize="24"></TextBox>
+                <Border Width="474" Height="65" CornerRadius="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="1,1,1,1">
+                    <TextBox x:Name="textBoxPass"  Width="400" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Введите пароль" FontSize="20"></TextBox>
                 </Border>
-                <Border Width="300" Height="65" Margin="325,401,325,134" CornerRadius="20,20,20,20" IsEnabled="False" Cursor="Hand">
+                <Border Width="300" Height="65" Margin="325,401,325,134" CornerRadius="20,20,20,20" Cursor="Hand" MouseDown="signin_btn">
                     <Border.Effect>
                         <DropShadowEffect Opacity="0.9" Color="#FF191919" BlurRadius="9"/>
                     </Border.Effect>
