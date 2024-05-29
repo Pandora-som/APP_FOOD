@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:NutriPlan"
              StartupUri="AdminPage1.xaml">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>
