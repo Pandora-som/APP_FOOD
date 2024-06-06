@@ -100,4 +100,13 @@ namespace NutriPlan
             Name = name;
         }
     }
+    public class Dish
+    {
+        public int ID { set; get; }
+        public string Name { set; get; }
+        public float Cal { set; get; }
+        public int TypeDish { set; get; }
+        public int TypeMeal { set; get; }
+        public List<ReferenceItem> ingredients = new List<ReferenceItem>();
+    }
 }

@@ -69,7 +69,7 @@
                                     <ImageBrush ImageSource="/Abstraction.png"/>
                                 </Border.Background>
                             </Border>
-                            <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" FontWeight="Bold" TextWrapping="Wrap" Text="Kuratova-AE" VerticalAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Auto" Width="202" FontSize="18" Grid.ColumnSpan="2"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" FontWeight="Bold" TextWrapping="Wrap" Text="Admin" VerticalAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Auto" Width="202" FontSize="18" Grid.ColumnSpan="2"/>
                         </Grid>
                     </Border>
                     <Border Width="260" Height="160" Background="#FFF1F1F1" BorderThickness="0,1,1,1" CornerRadius="0,10,10,0" Margin="0,75,40,145">
@@ -107,10 +107,14 @@
             </Border>
         </Grid>
         <Grid Margin="19,7,316,0" Height="70" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="874*"/>
+                <ColumnDefinition Width="231*"/>
+            </Grid.ColumnDefinitions>
             <Label Content="NutriPlan" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Foreground="#FFF1F1F1" FontSize="24" FontFamily="Impact"/>
-            <TextBlock x:Name="TitleWindow" HorizontalAlignment="Center" Margin="0,38,0,0" FontWeight="Bold" TextWrapping="Wrap" Text="Панель адмимнистрирования столов" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" Width="372" FontSize="20" Foreground="#FFF1F1F1"/>
+            <TextBlock x:Name="TitleWindow" HorizontalAlignment="Left" Margin="366,38,0,0" FontWeight="Bold" TextWrapping="Wrap" Text="Панель адмимнистрирования столов" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" Width="372" FontSize="20" Foreground="#FFF1F1F1"/>
         </Grid>
-        <ScrollViewer x:Name="PanelTables" Margin="60,85,300,30" VerticalScrollBarVisibility="Visible"  HorizontalScrollBarVisibility="Disabled" Visibility="Visible">
+        <ScrollViewer x:Name="PanelTables" Margin="60,85,300,30" VerticalScrollBarVisibility="Visible"  HorizontalScrollBarVisibility="Disabled" Visibility="Hidden">
             <Grid Margin="15,0,0,0" ShowGridLines="False">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
@@ -124,7 +128,7 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Grid.Row="0" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Background="#00DDDDDD" Cursor="Hand">
+                <Button x:Name="btnDesk1" Grid.Column="0" Grid.Row="0" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070"  Style="{StaticResource NoBorderButton}" Background="#00DDDDDD" Cursor="Hand" Click="btnDesk" >
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -149,7 +153,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="1" Grid.Row="0" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk2" Grid.Column="1" Grid.Row="0" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -174,7 +178,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="2" Grid.Row="0" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk3" Grid.Column="2" Grid.Row="0" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -199,7 +203,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="3" Grid.Row="0"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk4" Grid.Column="3" Grid.Row="0"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -224,7 +228,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="0" Grid.Row="1"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk5" Grid.Column="0" Grid.Row="1"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -249,7 +253,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="1" Grid.Row="1"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk6" Grid.Column="1" Grid.Row="1"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -274,7 +278,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="2" Grid.Row="1"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk7" Grid.Column="2" Grid.Row="1"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -299,7 +303,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="3" Grid.Row="1" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk8" Grid.Column="3" Grid.Row="1" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -324,7 +328,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="0" Grid.Row="2"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk9" Grid.Column="0" Grid.Row="2"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -349,7 +353,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="1" Grid.Row="2"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk10" Grid.Column="1" Grid.Row="2"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -374,7 +378,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="2" Grid.Row="2"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk11" Grid.Column="2" Grid.Row="2"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -399,7 +403,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="3" Grid.Row="2"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk12" Grid.Column="3" Grid.Row="2"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -424,7 +428,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="0" Grid.Row="3"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk13" Grid.Column="0" Grid.Row="3"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -449,7 +453,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="1" Grid.Row="3" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk14" Grid.Column="1" Grid.Row="3" Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -474,7 +478,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="2" Grid.Row="3"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk15" Grid.Column="2" Grid.Row="3"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -499,7 +503,7 @@
                         </Grid>
                     </Border>
                 </Button>
-                <Button Grid.Column="3" Grid.Row="3"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand">
+                <Button x:Name="btnDesk16" Grid.Column="3" Grid.Row="3"  Width="180" Height="190" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#00707070" Background="#00DDDDDD"  Style="{StaticResource NoBorderButton}" Cursor="Hand" Click="btnDesk">
                     <Border Width="180" Height="190" Background="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="20,20,20,20">
                         <Grid>
                             <Border Width="150" Height="135" CornerRadius="20,20,20,20" Margin="15,11,15,44">
@@ -526,7 +530,7 @@
                 </Button>
             </Grid>
         </ScrollViewer>
-        <Grid x:Name="PanelDishesTable" Margin="19,82,300,0" Visibility="Hidden">
+        <Grid x:Name="PanelDishesTable" Margin="19,82,300,0" Visibility="Visible">
             <Grid VerticalAlignment="Top" Height="80">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="96*"/>
@@ -537,7 +541,7 @@
                     <ColumnDefinition Width="59*"/>
                     <ColumnDefinition Width="261*"/>
                 </Grid.ColumnDefinitions>
-                <Border Width="200" Height="45" CornerRadius="12,12,12,12" Margin="30,18,31,17" Background="#CC585858" BorderThickness="2,2,2,2" IsEnabled="False" Grid.Column="6">
+                <Border Width="200" Height="45" CornerRadius="12,12,12,12" Margin="30,18,31,17" Background="#CC585858" BorderThickness="2,2,2,2" IsEnabled="True" Grid.Column="6" Cursor="Hand">
                     <Border.BorderBrush>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA678CE" Offset="1"/>
@@ -546,7 +550,7 @@
                     </Border.BorderBrush>
                     <TextBlock Text="Сохранить" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFF3F3F3"/>
                 </Border>
-                <Border Height="45" CornerRadius="12,12,12,12" Margin="10,18,10,17" Background="White" BorderThickness="2,2,2,2" IsEnabled="False" Grid.Column="4">
+                <Border x:Name="LastDinner" Height="45" CornerRadius="12,12,12,12" Margin="10,18,10,17" Background="White" BorderThickness="2,2,2,2" IsEnabled="True"  Grid.Column="4" Cursor="Hand" MouseDown="BorderMouseDown2">
                     <Border.BorderBrush>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA678CE" Offset="1"/>
@@ -555,7 +559,7 @@
                     </Border.BorderBrush>
                     <TextBlock Text="Ужины" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
-                <Border Height="45" CornerRadius="12,12,12,12" Margin="28,18,28,17" Background="White" BorderThickness="2,2,2,2" IsEnabled="False" Grid.Column="3">
+                <Border x:Name="Dinner"  Height="45" CornerRadius="12,12,12,12" Margin="28,18,28,17" Background="White" BorderThickness="2,2,2,2" IsEnabled="True"  Grid.Column="3" Cursor="Hand" MouseDown="BorderMouseDown1">
                     <Border.BorderBrush>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA678CE" Offset="1"/>
@@ -564,7 +568,7 @@
                     </Border.BorderBrush>
                     <TextBlock Text="Обеды" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
-                <Border Height="45" CornerRadius="12,12,12,12" Margin="43,17,42,18" Background="White" BorderThickness="2,2,2,2" IsEnabled="False" Grid.Column="2">
+                <Border x:Name="Brst" Height="45" CornerRadius="12,12,12,12" Margin="43,17,42,18" Background="Gold" BorderThickness="2,2,2,2" IsEnabled="True" Grid.Column="2" Cursor="Hand" MouseDown="BorderMouseDown">
                     <Border.BorderBrush>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA678CE" Offset="1"/>
@@ -573,7 +577,7 @@
                     </Border.BorderBrush>
                     <TextBlock Text="Завтраки" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
-                <Border Height="45" CornerRadius="12,12,12,12" Margin="29,18,29,17" Background="White" BorderThickness="2,2,2,2" IsEnabled="False">
+                <Border Height="45" CornerRadius="12,12,12,12" Margin="29,18,29,17" Background="White" BorderThickness="2,2,2,2" MouseUp="ClosePanelDT" Cursor="Hand">
                     <Border.BorderBrush>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA678CE" Offset="1"/>
@@ -583,8 +587,8 @@
                     <TextBlock Text="X" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
             </Grid>
-            <ScrollViewer>
-                <Grid Margin="96,80,0,0" Background="#FFF5F1F1" ShowGridLines="True">
+            <ScrollViewer Margin="96,80,0,0">
+                <Grid x:Name="gridDishes" Background="#FFF5F1F1" ShowGridLines="True">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="85*"/>
                         <ColumnDefinition Width="250*"/>
@@ -594,8 +598,8 @@
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="80"/>
-                        <RowDefinition Height="100*"/>
-                        <RowDefinition Height="100*"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
                     </Grid.RowDefinitions>
                     <TextBlock HorizontalAlignment="Center" Height="30" TextWrapping="Wrap" Text="№" VerticalAlignment="Top" Width="41" FontSize="14" FontWeight="Bold" TextAlignment="Center" RenderTransformOrigin="0.05,0.635" Margin="0,29,0,0"/>
                     <TextBlock HorizontalAlignment="Center" Height="30" TextWrapping="Wrap" Text="Наимнование" VerticalAlignment="Top" Width="98" FontSize="14" FontWeight="Bold" Grid.Column="1" Margin="0,29,0,0"/>
@@ -604,7 +608,7 @@
                 </Grid>
             </ScrollViewer>
         </Grid>
-        <Grid x:Name="PanelAddDishes" Margin="19,82,300,0" Background="#FFE8EFE8" Visibility="Visible">
+        <Grid x:Name="PanelAddDishes" Margin="19,82,300,0" Background="#FFE8EFE8" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="79*"/>
                 <ColumnDefinition Width="229*"/>
@@ -638,44 +642,44 @@
             <TextBox x:Name="kkl" Grid.Column="2" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Ккл" VerticalAlignment="Center" Width="120" Height="17"/>
             <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Margin="0,0,0,0">
                 <Label Grid.Column="1" Content="Выберите тип блюда" Height="36" Margin="0,0,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="type1" Content="Овощное" Cursor="Hand" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="type2" Content="Мясное" Cursor="Hand" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="type3" Content="Молочное" Cursor="Hand" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="type4" Content="Соусы" Cursor="Hand" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="type5" Content="Грибное" Cursor="Hand" HorizontalAlignment="Left" Margin="150,41,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="type6" Content="Острое" HorizontalAlignment="Left" Margin="150,61,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="type7" Content="Хлебобулочные изделия" Cursor="Hand" HorizontalAlignment="Left" Margin="150,81,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="type8" Content="Кофе" Cursor="Hand" HorizontalAlignment="Left" Margin="150,101,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="type9" Content="Сладкое" Cursor="Hand" HorizontalAlignment="Left" Margin="370,41,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="type10" Content="Копчености/ колбасные изделия" Cursor="Hand" HorizontalAlignment="Left" Margin="370,61,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="type11" Content="Маринованная продукция" Cursor="Hand" HorizontalAlignment="Left" Margin="370,81,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="type12" Content="Бобовые" Cursor="Hand" HorizontalAlignment="Left" Margin="370,101,0,0" VerticalAlignment="Top"/>
+                <RadioButton x:Name="type1" Content="Овощное" Cursor="Hand" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Click="tpDish" />
+                <RadioButton x:Name="type2" Content="Мясное" Cursor="Hand" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Click="tpDish"/>
+                <RadioButton x:Name="type3" Content="Молочное" Cursor="Hand" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Click="tpDish"/>
+                <RadioButton x:Name="type4" Content="Соусы" Cursor="Hand" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" Click="tpDish"/>
+                <RadioButton x:Name="type5" Content="Грибное" Cursor="Hand" HorizontalAlignment="Left" Margin="150,41,0,0" VerticalAlignment="Top" Click="tpDish"/>
+                <RadioButton x:Name="type6" Content="Острое" HorizontalAlignment="Left" Margin="150,61,0,0" VerticalAlignment="Top" Click="tpDish"/>
+                <RadioButton x:Name="type7" Content="Хлебобулочные изделия" Cursor="Hand" HorizontalAlignment="Left" Margin="150,81,0,0" VerticalAlignment="Top" Click="tpDish"/>
+                <RadioButton x:Name="type8" Content="Кофе" Cursor="Hand" HorizontalAlignment="Left" Margin="150,101,0,0" VerticalAlignment="Top" Click="tpDish"/>
+                <RadioButton x:Name="type9" Content="Сладкое" Cursor="Hand" HorizontalAlignment="Left" Margin="370,41,0,0" VerticalAlignment="Top" Click="tpDish"/>
+                <RadioButton x:Name="type10" Content="Копчености/ колбасные изделия" Cursor="Hand" HorizontalAlignment="Left" Margin="370,61,0,0" VerticalAlignment="Top" Click="tpDish"/>
+                <RadioButton x:Name="type11" Content="Маринованная продукция" Cursor="Hand" HorizontalAlignment="Left" Margin="370,81,0,0" VerticalAlignment="Top" Click="tpDish"/>
+                <RadioButton x:Name="type12" Content="Бобовые" Cursor="Hand" HorizontalAlignment="Left" Margin="370,101,0,0" VerticalAlignment="Top" Click="tpDish"/>
             </Grid>
             <Grid Grid.Row="4" Grid.ColumnSpan="3" Margin="78,170,2,113">
                 <Label Grid.Column="1" Content="Выберите столы к которым относится блюдо" Height="36" Margin="0,0,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk1" Content="Стол 1" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk2" Content="Стол 2" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk3" Content="Стол 3" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk4" Content="Стол 4" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk5" Content="Стол 5" HorizontalAlignment="Left" Margin="100,41,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk6" Content="Стол 6" HorizontalAlignment="Left" Margin="100,61,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk7" Content="Стол 7" HorizontalAlignment="Left" Margin="100,81,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk8" Content="Стол 8" HorizontalAlignment="Left" Margin="100,101,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk9" Content="Стол 9" HorizontalAlignment="Left" Margin="190,41,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk10" Content="Стол 10" HorizontalAlignment="Left" Margin="190,61,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk11" Content="Стол 11" HorizontalAlignment="Left" Margin="190,81,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk12" Content="Стол 12" HorizontalAlignment="Left" Margin="190,101,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk13" Content="Стол 13" HorizontalAlignment="Left" Margin="280,41,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk14" Content="Стол 14" HorizontalAlignment="Left" Margin="280,61,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk15" Content="Стол 15" HorizontalAlignment="Left" Margin="280,81,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="desk16" Content="Стол 16" HorizontalAlignment="Left" Margin="280,101,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="desk1" Content="Стол 1" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Checked="tpDesk" />
+                <CheckBox x:Name="desk2" Content="Стол 2" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
+                <CheckBox x:Name="desk3" Content="Стол 3" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
+                <CheckBox x:Name="desk4" Content="Стол 4" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
+                <CheckBox x:Name="desk5" Content="Стол 5" HorizontalAlignment="Left" Margin="100,41,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
+                <CheckBox x:Name="desk6" Content="Стол 6" HorizontalAlignment="Left" Margin="100,61,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
+                <CheckBox x:Name="desk7" Content="Стол 7" HorizontalAlignment="Left" Margin="100,81,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
+                <CheckBox x:Name="desk8" Content="Стол 8" HorizontalAlignment="Left" Margin="100,101,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
+                <CheckBox x:Name="desk9" Content="Стол 9" HorizontalAlignment="Left" Margin="190,41,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
+                <CheckBox x:Name="desk10" Content="Стол 10" HorizontalAlignment="Left" Margin="190,61,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
+                <CheckBox x:Name="desk11" Content="Стол 11" HorizontalAlignment="Left" Margin="190,81,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
+                <CheckBox x:Name="desk12" Content="Стол 12" HorizontalAlignment="Left" Margin="190,101,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
+                <CheckBox x:Name="desk13" Content="Стол 13" HorizontalAlignment="Left" Margin="280,41,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
+                <CheckBox x:Name="desk14" Content="Стол 14" HorizontalAlignment="Left" Margin="280,61,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
+                <CheckBox x:Name="desk15" Content="Стол 15" HorizontalAlignment="Left" Margin="280,81,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
+                <CheckBox x:Name="desk16" Content="Стол 16" HorizontalAlignment="Left" Margin="280,101,0,0" VerticalAlignment="Top" Checked="tpDesk"/>
             </Grid>
             <Grid Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="1" Margin="0,0,0,0" Grid.RowSpan="1">
                 <GroupBox Header="Тип приема пищи">
                     <Grid>
-                        <RadioButton x:Name="breakfast_type" Content="Завтрак" Height="27" Margin="0,0,0,0" VerticalAlignment="Top"/>
-                        <RadioButton x:Name="dinner_type" Content="Обед" Height="27" Margin="0,20,0,0" VerticalAlignment="Top"/>
-                        <RadioButton x:Name="supper_type" Content="Ужин" Height="27" Margin="0,40,0,0" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="brtype1" Content="Завтрак" Height="20" Margin="0,0,0,0" VerticalAlignment="Top" Click="tpPlan"/>
+                        <RadioButton x:Name="ditype2" Content="Обед" Height="20" Margin="0,20,0,0" VerticalAlignment="Top" Click="tpPlan"/>
+                        <RadioButton x:Name="sutype3" Content="Ужин" Height="20" Margin="0,40,0,0" VerticalAlignment="Top" Click="tpPlan"/>
                     </Grid>
                 </GroupBox>
             </Grid>
@@ -686,7 +690,7 @@
                         <GradientStop Color="#FF81D255" Offset="0"/>
                     </LinearGradientBrush>
                 </Border.BorderBrush>
-                <TextBlock Text="Сохранить" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFF3F3F3" MouseDown="Save_btnDishBD"/>
+                <TextBlock Text="Сохранить" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFF3F3F3"/>
             </Border>
         </Grid>
     </Grid>
